@@ -23,10 +23,10 @@ const Navbar = () => {
         >
           <IoMenuOutline size={30} />
         </div>
-        <img src="/gourmeta_logo.png" alt="logo" className="ml-2 h6 md:h-8" />
+        <img src="/gourmeta_logo.png" alt="logo" className="ml-2 h-6 md:h-8" />
       </div>
 
-      <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
+      <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[350px] lg:w-[450px]">
         <IoSearch size={25} />
         <input
           className="bg-transparent p-2 w-full focus:outline-none"
