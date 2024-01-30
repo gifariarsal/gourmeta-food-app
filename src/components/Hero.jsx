@@ -6,11 +6,11 @@ const Hero = () => {
       <div className="max-h-[500px] relative">
         <div className="absolute w-full h-full text-gray-200 max-h-[500px] bg-black/40 flex flex-col justify-center rounded-2xl">
           <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-            Feast with Ease
+            Feast with <span className="text-primary">Ease</span>
           </h1>
           <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
             {' '}
-            Taste and Please
+            Taste and <span className="text-primary">Please</span>
           </h1>
         </div>
         <img

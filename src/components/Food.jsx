@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { foodData } from '../data';
 
 const FilterButton = ({ action, title }) => {
@@ -15,20 +15,34 @@ const FilterButton = ({ action, title }) => {
 const Food = () => {
   const [foods, setFoods] = useState(foodData);
 
+  useEffect(() => {
+    const sortedFoodData = [...foodData].sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+
+    setFoods(sortedFoodData);
+  }, []);
+
+  const sortedFoodData = useMemo(() => {
+    return [...foodData].sort((a, b) => a.name.localeCompare(b.name));
+  }, []);
+
+  useEffect(() => {
+    setFoods(sortedFoodData);
+  }, [sortedFoodData]);
+
   const filterType = (category) => {
-    setFoods(
-      foodData.filter((item) => {
-        return item.category === category;
-      })
-    );
+    setFoods(sortedFoodData.filter((item) => item.category === category));
   };
 
   const filterPrice = (price) => {
-    setFoods(
-      foodData.filter((item) => {
-        return item.price === price;
-      })
-    );
+    setFoods(sortedFoodData.filter((item) => item.price === price));
   };
 
   return (
@@ -41,7 +55,7 @@ const Food = () => {
         <div>
           <p className="font-bold text-gray-700">Filter Type</p>
           <div className="flex justfiy-between flex-wrap">
-            <FilterButton action={() => setFoods(foodData)} title="All" />
+            <FilterButton action={() => setFoods(sortedFoodData)} title="All" />
             <FilterButton action={() => filterType('burger')} title="Burgers" />
             <FilterButton action={() => filterType('pizza')} title="Pizza" />
             <FilterButton action={() => filterType('salad')} title="Salads" />
