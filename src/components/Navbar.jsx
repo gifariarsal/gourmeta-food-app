@@ -21,7 +21,7 @@ const Navbar = () => {
         <div onClick={() => setNav(!nav)} className={styles.menuButton}>
           <IoMenuOutline size={30} />
         </div>
-        <img src="/gourmeta_logo.png" alt="logo" className="ml-2 h-6 md:h-8" />
+        <img src="/gourmeta_logo.png" alt="Logo" className="ml-2 h-6 md:h-8" />
       </div>
 
       <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[350px] lg:w-[450px]">
