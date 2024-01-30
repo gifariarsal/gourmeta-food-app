@@ -34,7 +34,7 @@ const Navbar = () => {
           placeholder="Search foods ..."
         />
       </div>
-      <button className="bg-black text-white hidden md:flex items-center py-2 rounded-full hover:bg-gray-700 transition duration-300 ease-in-out">
+      <button className="bg-primary text-white !border-none hidden md:flex items-center py-2 rounded-full hover:bg-primary/80 transition duration-300 ease-in-out">
         <IoCartOutline size={20} className="mr-2" /> Cart
       </button>
 
@@ -59,19 +59,19 @@ const Navbar = () => {
         <h2 className="text-primary text-3xl p-4">gourmeta</h2>
         <nav>
           <ul className="flex flex-col p-4 text-gray-800">
-            <li className="text-xl py-4 flex">
+            <li className="text-xl py-4 flex items-center">
               <IoReceiptOutline size={25} className="mr-4" /> Orders
             </li>
-            <li className="text-xl py-4 flex">
+            <li className="text-xl py-4 flex items-center">
               <IoHeartOutline size={25} className="mr-4" /> Favorites
             </li>
-            <li className="text-xl py-4 flex">
+            <li className="text-xl py-4 flex items-center">
               <IoWalletOutline size={25} className="mr-4" /> Wallet
             </li>
-            <li className="text-xl py-4 flex">
+            <li className="text-xl py-4 flex items-center">
               <IoPricetagsOutline size={25} className="mr-4" /> Promotions
             </li>
-            <li className="text-xl py-4 flex">
+            <li className="text-xl py-4 flex items-center">
               <IoHelpCircleOutline size={25} className="mr-4" /> Help
             </li>
           </ul>
