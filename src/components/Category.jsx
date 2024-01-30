@@ -1,9 +1,10 @@
 import React from 'react';
 import { categories } from '../data';
+import styles from '../style';
 
 const Category = () => {
   return (
-    <div className="max-w-[1640px] m-auto px-4 py-12">
+    <div className={styles.container}>
       <h1 className="text-primary font-bold text-4xl text-center">
         Menu Categories
       </h1>

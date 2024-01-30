@@ -1,16 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { foodData } from '../data';
-
-const FilterButton = ({ action, title }) => {
-  return (
-    <button
-      onClick={action}
-      className="m-1 border-primary text-primary hover:bg-primary hover:text-white transition duration-300 ease-in-out"
-    >
-      {title}
-    </button>
-  );
-}
+import FoodFilterButton from './FoodFilterButton';
+import styles from '../style';
 
 const Food = () => {
   const [foods, setFoods] = useState(foodData);
@@ -46,20 +37,34 @@ const Food = () => {
   };
 
   return (
-    <div className="max-w-[1640px] m-auto px-4 py-12">
+    <div className={styles.container}>
       <h1 className="text-primary font-bold text-4xl text-center">
         Top Rated Menu Items
       </h1>
 
       <div className="flex flex-col lg:flex-row justify-between">
         <div>
-          <p className="font-bold text-gray-700">Filter Type</p>
+          <p className="text-gray-500 mb-2">
+            Filter by: <span className="font-bold text-gray-700">Type</span>
+          </p>
           <div className="flex justfiy-between flex-wrap">
-            <FilterButton action={() => setFoods(sortedFoodData)} title="All" />
-            <FilterButton action={() => filterType('burger')} title="Burgers" />
-            <FilterButton action={() => filterType('pizza')} title="Pizza" />
-            <FilterButton action={() => filterType('salad')} title="Salads" />
-            <FilterButton
+            <FoodFilterButton
+              action={() => setFoods(sortedFoodData)}
+              title="All"
+            />
+            <FoodFilterButton
+              action={() => filterType('burger')}
+              title="Burgers"
+            />
+            <FoodFilterButton
+              action={() => filterType('pizza')}
+              title="Pizza"
+            />
+            <FoodFilterButton
+              action={() => filterType('salad')}
+              title="Salads"
+            />
+            <FoodFilterButton
               action={() => filterType('chicken')}
               title="Chicken"
             />
@@ -67,21 +72,23 @@ const Food = () => {
         </div>
 
         <div>
-          <p className="font-bold text-gray-700">Filter Price</p>
+          <p className="text-gray-500 mb-2">
+            Filter by: <span className="font-bold text-gray-700">Price</span>
+          </p>
           <div className="flex justify-between max-w-[390px] w-full">
-            <FilterButton action={() => filterPrice('$')} title="$" />
-            <FilterButton action={() => filterPrice('$$')} title="$$" />
-            <FilterButton action={() => filterPrice('$$$')} title="$$$" />
-            <FilterButton action={() => filterPrice('$$$$')} title="$$$$" />
+            <FoodFilterButton action={() => filterPrice('$')} title="$" />
+            <FoodFilterButton action={() => filterPrice('$$')} title="$$" />
+            <FoodFilterButton action={() => filterPrice('$$$')} title="$$$" />
+            <FoodFilterButton action={() => filterPrice('$$$$')} title="$$$$" />
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-        {foods.map((food, index) => (
+        {foods.map((food) => (
           <div
-            key={index}
-            className="border shadow-lg rounded-lg cursor-pointer hover:scale-105 duration-300"
+            key={food.id}
+            className="mt-2 border shadow-lg rounded-lg cursor-pointer hover:scale-105 duration-300"
           >
             <img
               src={food.image}
