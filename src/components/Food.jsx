@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { foodData } from '../data';
 import FoodFilterButton from './FoodFilterButton';
 import styles from '../style';
+import FoodCard from './FoodCard';
 
 const Food = () => {
   const [foods, setFoods] = useState(foodData);
@@ -86,24 +87,7 @@ const Food = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
         {foods.map((food) => (
-          <div
-            key={food.id}
-            className="mt-2 border shadow-lg rounded-lg cursor-pointer hover:scale-105 duration-300"
-          >
-            <img
-              src={food.image}
-              alt={food.name}
-              className="w-full h-[200px] object-cover rounded-t-lg"
-            />
-            <div className="flex justify-between px-2 py-4">
-              <p className="font-bold">{food.name}</p>
-              <p>
-                <span className="bg-primary text-white py-1 px-2 rounded-full">
-                  {food.price}
-                </span>
-              </p>
-            </div>
-          </div>
+          <FoodCard key={food.id} {...food} />
         ))}
       </div>
     </div>

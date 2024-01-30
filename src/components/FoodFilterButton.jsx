@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const FoodFilterButton = ({ action, title }) => {
   return (
@@ -11,4 +11,4 @@ const FoodFilterButton = ({ action, title }) => {
   );
 };
 
-export default FoodFilterButton
+export default FoodFilterButton;
